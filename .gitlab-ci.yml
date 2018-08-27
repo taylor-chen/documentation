@@ -18,7 +18,7 @@ before_script:
 
 # ================== templates ================== #
 .base_template: &base_template
-  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/corp-ci:master
+  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/corp-ci:david.jones_integration-build
   tags:
     - "runner:main"
     - "size:large"
@@ -39,7 +39,8 @@ build_preview:
   script:
     - post_dd_event "documentation deploy ${CI_COMMIT_REF_NAME} started" "${CI_PROJECT_URL}/pipelines/${CI_PIPELINE_ID}" "info"
     - version_static_assets
-    - sync_integration_descriptions
+    - pull_integration_archive
+    #- sync_integration_descriptions
     - placehold_translations
     - build_hugo_site
     - build_hugo_site_ja
@@ -86,6 +87,18 @@ test_preview_links:
   script:
     - pull_artifact_from_s3
     - test_site_links "links" "${URL}" "True" "False" "True"
+  only:
+    - /.+?\/[a-zA-Z0-9_-]+/
+
+
+integrations_build:on-schedule:
+  <<: *base_template
+  stage: post-deploy
+  environment: "preview"
+  variables:
+    URL: ${PREVIEW_DOMAIN}
+  script:
+    - build_integrations_archive
   only:
     - /.+?\/[a-zA-Z0-9_-]+/
 
