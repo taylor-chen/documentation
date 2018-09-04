@@ -97,6 +97,7 @@ integrations_build:on-schedule:
   environment: "preview"
   variables:
     URL: ${PREVIEW_DOMAIN}
+    UNTRACKED_EXTRAS: "data/integrations,data/service_checks,content/integrations,content/developers/integrations"
   script:
     - build_integrations_archive
   only:

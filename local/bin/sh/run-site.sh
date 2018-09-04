@@ -35,13 +35,12 @@ if [ ${RUN_SERVER} == true ]; then
 		if [ ${INTEGRATIONS_EXTRAS} != "false" ]; then
 			args="${args} --extras ${INTEGRATIONS_EXTRAS}"
 		fi
-		if [ ${GITHUB_TOKEN} != "false" ]; then
-			args="${args} --token ${GITHUB_TOKEN}"
-		else
-			echo "No GITHUB TOKEN was found. skipping any integration sync that relies on pulling from web."
-		fi
 		if [[ ${args} != "" ]]; then
+		    # local versions of dogweb/core/extras
 			update_pre_build.py ${args}
+		else
+		    # pull archive instead
+            curl https://s3.amazonaws.com/origin-static-assets/build_artifacts/master/integrations-archive-latest.tar.gz | tar -xz
 		fi
 	fi
 

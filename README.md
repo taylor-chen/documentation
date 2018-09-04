@@ -19,8 +19,6 @@ Built with [hugo][1], a static website generation tool.
 
 Inside `documentation/` folder, create a `Makefile.config` file from the [Makefile.config.example][6]
 
-If you are a Datadog employee, add your [Github personal token][7]
-
 To run the site and perform administrative tasks (compile metrics, create i18n placeholders, etc), just execute:
 
 `make start`
