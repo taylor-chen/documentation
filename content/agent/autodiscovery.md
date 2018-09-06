@@ -6,9 +6,6 @@ aliases:
   - /guides/autodiscovery/
   - /agent/autodiscovery
 further_reading:
-- link: "/videos/autodiscovery/"
-  tag: "Video"
-  text: Datadog Autodiscovery on Docker with Labels using Agent v6 & v5
 - link: "logs/"
   tag: "Documentation"
   text: Collect your logs
@@ -434,5 +431,4 @@ instances:
 [21]: https://github.com/DataDog/integrations-core/blob/master/http_check/datadog_checks/http_check/data/conf.yaml.example
 [22]: https://github.com/DataDog/integrations-core/blob/master/kube_proxy/datadog_checks/kube_proxy/data/conf.yaml.example
 [23]: https://docs.datadoghq.com/logs/docker/
-[24]: /videos/autodiscovery/
 [25]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html

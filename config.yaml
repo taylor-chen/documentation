@@ -1103,11 +1103,6 @@ languages:
           weight: 50
           parent: menu_references_security
 
-        - identifier: menu_references_videos
-          name: "Videos"
-          url: "videos/"
-          pre: "nav_videos"
-          weight: 140
         - identifier: menu_references_glossary
           name: "Glossary"
           url: "glossary/"
@@ -2155,11 +2150,6 @@ languages:
         #  parent: menu_references_account_management
         # ACCOUNT MANAGEMENT - Subnav end
 
-        - identifier: menu_references_videos
-          name: "Vidéos"
-          url: "videos/"
-          pre: "nav_videos"
-          weight: 130
         - identifier: menu_references_glossary
           name: "Glossaire"
           url: "glossary/"
