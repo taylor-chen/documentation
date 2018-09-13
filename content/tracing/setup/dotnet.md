@@ -91,7 +91,21 @@ Don’t see your desired data store libraries? We’re continually adding additi
 
 ## Manual Instrumentation
 
-To manually instrument your code, see [Advanced Usage][2].
+To manually instrument your code, add the [`Datadog.Tracing`][6] NuGet package to your application. Then wrap any code in a tracer scope and set the span's type, resource name, and tags:
+
+```csharp
+using(var scope = Datadog.Tracing.Tracer.Instance.StartActive("operation_name"))
+{
+  var span = scope.Span;
+  span.Type = "custom";
+  span.ResourceName = "resource_name"
+  span.SetTag("tag_name", "tag_value");
+
+  // do work...
+}
+```
+
+For more details, see [Advanced Usage][2].
 
 ## Further Reading
 
@@ -102,3 +116,4 @@ To manually instrument your code, see [Advanced Usage][2].
 [3]: https://github.com/DataDog/dd-trace-csharp/releases
 [4]: https://www.nuget.org/packages/Datadog.Trace/
 [5]: /help
+[6]: https://www.nuget.org/packages/Datadog.Trace/
